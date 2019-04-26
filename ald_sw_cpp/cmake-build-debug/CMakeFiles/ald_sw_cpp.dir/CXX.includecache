@@ -17,16 +17,8 @@ opencv2/highgui/highgui.hpp
 /home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
 /home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/imgproc/imgproc.hpp
-iostream
+math.h
 -
-opencv2/opencv.hpp
-/home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/opencv.hpp
-opencv2/core/core.hpp
-/home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/core/core.hpp
-opencv2/highgui/highgui.hpp
-/home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/highgui/highgui.hpp
-opencv2/imgproc/imgproc.hpp
-/home/maverick/Documents/PSRA/ald_sw_cpp/opencv2/imgproc/imgproc.hpp
 
 /home/maverick/opt/opencv_4_0_1/build/cv_cpu_config.h
 

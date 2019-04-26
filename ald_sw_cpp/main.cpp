@@ -3,12 +3,7 @@
 #include"opencv2/core/core.hpp"
 #include"opencv2/highgui/highgui.hpp"
 #include"opencv2/imgproc/imgproc.hpp"
-
-#include <iostream>
-#include"opencv2/opencv.hpp"
-#include"opencv2/core/core.hpp"
-#include"opencv2/highgui/highgui.hpp"
-#include"opencv2/imgproc/imgproc.hpp"
+#include <math.h>
 
 #define iStart 1
 #define iEnd 1201
@@ -65,12 +60,12 @@ int main() {
         }
 
         //Filtracja medianowa maski obiektów pierwszoplanowych
-        cv::imshow("Przed", fgMask);
+//        cv::imshow("Przed", fgMask);
         cv::medianBlur(fgMask, fgMask, median_ksize);
         cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT,  cv::Size(ksize, ksize));
         cv::morphologyEx(fgMask, fgMask, cv::MORPH_CLOSE, kernel, cv::Point(-1,-1), 3);
 //        cv::morphologyEx(fgMask, fgMask, cv::MORPH_OPEN, kernel);
-        cv::imshow("Po", fgMask);
+//        cv::imshow("Po", fgMask);
 
         //Segmentacja obiektów ruchomych
 //        mov_sum = 0;
@@ -107,38 +102,66 @@ int main() {
             }
         }
 
-        //Indeksacja
-        labels_num = cv::connectedComponentsWithStats(fgMask, labels, stats, centroids, 4, CV_16U); //, cv::CCL_DEFAULT );
-        int max = 0;
-        for(int i=1; i<stats.rows; i++) {
-            int x = stats.at<int>(cv::Point(0, i));
-            int y = stats.at<int>(cv::Point(1, i));
-            int w = stats.at<int>(cv::Point(2, i));
-            int h = stats.at<int>(cv::Point(3, i));
-            int area = stats.at<int>(cv::Point(4, i));
-            max = stats.at<int>(cv::Point(5, i));
-//            if(x1 && iImage == 100)
-                std::cout << max << std::endl;
+//       // Indeksacja
+//        labels_num = cv::connectedComponentsWithStats(fgMask, labels, stats, centroids, 4, CV_16U); //, cv::CCL_DEFAULT );
+//
+//        for(int i=1; i<stats.rows; i++) {
+//            int x = stats.at<int>(cv::Point(0, i));
+//            int y = stats.at<int>(cv::Point(1, i));
+//            int w = stats.at<int>(cv::Point(2, i));
+//            int h = stats.at<int>(cv::Point(3, i));
+//            int area = stats.at<int>(cv::Point(4, i));
+//            int max = stats.at<int>(cv::Point(5, i));
+//
+//            //std::cout << "x=" << x << " y=" << y << " w=" << w << " h=" << h << std::endl;
+//
+//            if(area > 300)
+//            {
+//                cv::Scalar color(255, 0, 0);
+//                cv::Rect rect(x, y, w, h);
+//                cv::rectangle(inputImage, rect, color);
+//            }
+//
+//        }
 
-            //std::cout << "x=" << x << " y=" << y << " w=" << w << " h=" << h << std::endl;
+        // Indeksacja II
+        std::vector<std::vector<cv::Point> >  contours;
+        std::vector<cv::Vec4i> hierarchy;
+        std::vector<std::vector<cv::Point> > contours0;
 
+        cv::findContours(fgMask, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE);
+//        contours.resize(contours0.size());
+//        for( size_t k = 0; k < contours0.size(); k++ )
+//            approxPolyDP(cv::Mat(contours0[k]), contours[k], 3, true);
+
+        /// Get the moments, mass centers and areas
+        std::vector<cv::Moments> mu(contours.size());
+        std::vector<cv::Point2f> mc( contours.size() );
+        std::vector<double> areas(contours.size());
+        for( int i = 0; i < contours.size(); i++ ){
+            mu[i] = cv::moments( contours[i], false);
+            areas[i] = cv::contourArea(contours[i]);
+            mc[i] = cv::Point2f( float(mu[i].m10/mu[i].m00) , float(mu[i].m01/mu[i].m00));
+        }
+
+
+        for( size_t i = 0; i < contours.size(); i++ )
+        {
             cv::Scalar color(255, 0, 0);
-            cv::Rect rect(x, y, w, h);
-            cv::rectangle(inputImage, rect, color);
+//            drawContours( inputImage, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point() );
+            int w = 50;
+            int h = 100;
+            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
+            if(areas[i] > 1000)
+                cv::rectangle(inputImage, rect, color);
+            cv::putText(inputImage, "obj", cv::Point(mc[i].x, mc[i].y), cv::FONT_HERSHEY_SIMPLEX, 0.2, color);
         }
-        if(x1) {
-
-            std::cout << max << std::endl;
-            x1 = false;
-        }
-
-
 
         inputImage_prev = inputImage.clone();
         cv::imshow("bgModel", bgModel);
-//        cv::imshow("Segmentacja obiektów pierwszoplanowych", fgMask);
+        cv::imshow("Segmentacja obiektów pierwszoplanowych", fgMask);
         cv::imshow("Segmetancja obiektów ruchomych", movMask);
-        cv::imshow("Inputimage", inputImage);
+        cv::imshow("InputImage", inputImage);
         cv::waitKey(1);
     }
 
