@@ -16,6 +16,8 @@ typedef cv::Vec<uchar,3> vec_uchar_3;
 #define median_ksize 5
 #define ksize 3
 
+static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m);
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
     char buffer[100];
@@ -127,9 +129,10 @@ int main() {
         // Indeksacja II
         std::vector<std::vector<cv::Point> >  contours;
         std::vector<cv::Vec4i> hierarchy;
-        std::vector<std::vector<cv::Point> > contours0;
+
 
         cv::findContours(fgMask, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE);
+//        std::vector<std::vector<cv::Point> > contours0;
 //        contours.resize(contours0.size());
 //        for( size_t k = 0; k < contours0.size(); k++ )
 //            approxPolyDP(cv::Mat(contours0[k]), contours[k], 3, true);
@@ -137,23 +140,26 @@ int main() {
         /// Get the moments, mass centers and areas
         std::vector<cv::Moments> mu(contours.size());
         std::vector<cv::Point2f> mc( contours.size() );
+        std::vector<cv::Point> min_max( contours.size() );
         std::vector<double> areas(contours.size());
         for( int i = 0; i < contours.size(); i++ ){
             mu[i] = cv::moments( contours[i], false);
             areas[i] = cv::contourArea(contours[i]);
             mc[i] = cv::Point2f( float(mu[i].m10/mu[i].m00) , float(mu[i].m01/mu[i].m00));
+//            int min = std::min_element(contours[i].begin(), )
         }
 
-
+        cv::Rect minRect;
         for( size_t i = 0; i < contours.size(); i++ )
         {
             cv::Scalar color(255, 0, 0);
 //            drawContours( inputImage, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point() );
-            int w = 50;
-            int h = 100;
-            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
+//            int w = 50;
+//            int h = 100;
+//            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
+            minRect = pointSetBoundingRect( cv::Mat(contours[i]),inputImage );
             if(areas[i] > 1000)
-                cv::rectangle(inputImage, rect, color);
+                cv::rectangle(inputImage, minRect, color);
             cv::putText(inputImage, "obj", cv::Point(mc[i].x, mc[i].y), cv::FONT_HERSHEY_SIMPLEX, 0.2, color);
         }
 
@@ -166,4 +172,59 @@ int main() {
     }
 
     return 0;
+}
+
+//int findMinMax(std::vector<std::vector<cv::Point>> contour )
+static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m)
+{
+    int npoints = points.checkVector(2);
+
+
+    int  xmin = 0, ymin = 0, xmax = -1, ymax = -1, i;
+    cv::Point ptxmin , ptymin , ptxmax , ptymax;
+
+    if( npoints == 0 )
+        return cv::Rect();
+
+    const cv::Point* pts = points.ptr<cv::Point>();
+    cv::Point pt = pts[0];
+
+    ptxmin = ptymin = ptxmax = ptymax = pt;
+    xmin = xmax = pt.x;
+    ymin = ymax = pt.y;
+
+    for( i = 1; i < npoints; i++ )
+    {
+        pt = pts[i];
+
+        if( xmin > pt.x )
+        {
+            xmin = pt.x;
+            ptxmin = pt;
+        }
+
+
+        if( xmax < pt.x )
+        {
+            xmax = pt.x;
+            ptxmax = pt;
+        }
+
+        if( ymin > pt.y )
+        {
+            ymin = pt.y;
+            ptymin = pt;
+        }
+
+        if( ymax < pt.y )
+        {
+            ymax = pt.y;
+            ptymax = pt;
+        }
+    }
+    ellipse( m, ptxmin, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
+    ellipse( m, ptxmax, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
+    ellipse( m, ptymin, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
+    ellipse( m, ptymax, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
+    return cv::Rect(xmin, ymin, xmax - xmin + 1, ymax - ymin + 1);
 }
