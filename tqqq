@@ -1,0 +1,47 @@
+[33mcommit c1a3c82668017cc51495e431fc70f5712c55aa33[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 21:35:14 2019 +0200
+
+    .gitignore added
+
+[33mcommit b5249595c8f81bec7107efce1908c9033184b197[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 21:10:01 2019 +0200
+
+    drawing minimum rectangle added
+
+[33mcommit a3542bc99d0b67d8205fdd4f8c0de8c2a34deee1[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 20:51:55 2019 +0200
+
+    Another type of indexing added
+
+[33mcommit 9bc53e89938378bdc23b71951e1424a95449faf7[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 19:24:00 2019 +0200
+
+    Object indexing and rectangle drawing added
+
+[33mcommit 818d18fa56b2165068a1427b6288f959d4b0bf81[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 17:36:00 2019 +0200
+
+    added CMakeLists used in lab
+
+[33mcommit 4e229b19f342a6411ef0ce0005091d10ae702a3e[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 17:34:00 2019 +0200
+
+    Initial
+
+[33mcommit e8bbeebb94ba9293244478ad5246369a734c9271[m
+Author: Maveric4 <danielgacek97@gmail.com>
+Date:   Fri Apr 26 17:33:23 2019 +0200
+
+    Initial commit
+
+[33mcommit d4ea1fd6cc97e1f5574760a26120248e551a5b34[m
+Author: Maverick <danielgacek97@gmail.com>
+Date:   Fri Apr 26 15:25:15 2019 +0200
+
+    Initial commit

@@ -7,21 +7,24 @@
 
 #define iStart 1
 #define iEnd 1201
-#define iStep 5
+#define iStep 3
 
 typedef cv::Vec<uchar,3> vec_uchar_3;
 
 #define binThresh 70
-#define mov_binThresh 25
+#define mov_binThresh 30
+#define areaThresh 500
 #define median_ksize 5
 #define ksize 3
 
 static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m);
+float countPercantegOfMovingPixels(const cv::Mat& points, cv::Mat movMask);
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
     char buffer[100];
     cv::Mat inputImage;
+    cv::Mat imageToShow;
     cv::Mat inputImage_prev;
     cv::Mat movMask;
     cv::Mat bgModel;
@@ -34,12 +37,11 @@ int main() {
     cv::Mat stats;
     cv::Mat centroids;
 
-    bool x1 = true;
-
     for(int iImage = iStart; iImage < iEnd; iImage += iStep) {
         sprintf(buffer, "in%06d.jpg", iImage);
         std::string s_sequencePath = "../pets_2006/";
         inputImage = cv::imread(s_sequencePath + buffer);
+        imageToShow = inputImage.clone();
         if(iImage == iStart) {
             bgModel = inputImage.clone();
             inputImage_prev = inputImage.clone();
@@ -61,7 +63,7 @@ int main() {
             }
         }
 
-        //Filtracja medianowa maski obiektów pierwszoplanowych
+        //Filtracja medianowa maski obiektów pierwszoplanowych i operacje morfologiczne
 //        cv::imshow("Przed", fgMask);
         cv::medianBlur(fgMask, fgMask, median_ksize);
         cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT,  cv::Size(ksize, ksize));
@@ -83,9 +85,12 @@ int main() {
                 if (mov_sum > mov_binThresh){
                     movMask.at<uchar>(jj, ii) = 255;
                 }
-
             }
         }
+
+        //Filtracja medianowa maski obiektów ruchomych i operacje morfologiczne
+        cv::medianBlur(movMask, movMask, median_ksize);
+        cv::morphologyEx(movMask, movMask, cv::MORPH_CLOSE, kernel, cv::Point(-1,-1), 5);
 
         //Aktualizacja
         for(int jj=0; jj < inputImage.rows; jj++) {
@@ -100,7 +105,6 @@ int main() {
                             bgModel.at<vec_uchar_3>(jj, ii)[k] -= 1;
                     }
                 }
-
             }
         }
 
@@ -127,7 +131,7 @@ int main() {
 //        }
 
         // Indeksacja II
-        std::vector<std::vector<cv::Point> >  contours;
+        std::vector<std::vector<cv::Point>> contours;
         std::vector<cv::Vec4i> hierarchy;
 
 
@@ -146,10 +150,10 @@ int main() {
             mu[i] = cv::moments( contours[i], false);
             areas[i] = cv::contourArea(contours[i]);
             mc[i] = cv::Point2f( float(mu[i].m10/mu[i].m00) , float(mu[i].m01/mu[i].m00));
-//            int min = std::min_element(contours[i].begin(), )
         }
 
         cv::Rect minRect;
+        float percentage = 0;
         for( size_t i = 0; i < contours.size(); i++ )
         {
             cv::Scalar color(255, 0, 0);
@@ -157,24 +161,34 @@ int main() {
 //            int w = 50;
 //            int h = 100;
 //            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
-            minRect = pointSetBoundingRect( cv::Mat(contours[i]),inputImage );
-            if(areas[i] > 1000)
-                cv::rectangle(inputImage, minRect, color);
-            cv::putText(inputImage, "obj", cv::Point(mc[i].x, mc[i].y), cv::FONT_HERSHEY_SIMPLEX, 0.2, color);
+            minRect = pointSetBoundingRect( cv::Mat(contours[i]),imageToShow );
+            if(areas[i] > areaThresh) {
+                cv::rectangle(imageToShow, minRect, color);
+                percentage = countPercantegOfMovingPixels(cv::Mat(contours[i]), movMask);
+            }
+            cv::putText(imageToShow, "obj", cv::Point(mc[i].x, mc[i].y), cv::FONT_HERSHEY_SIMPLEX, 0.2, color);
         }
 
         inputImage_prev = inputImage.clone();
         cv::imshow("bgModel", bgModel);
         cv::imshow("Segmentacja obiektów pierwszoplanowych", fgMask);
-        cv::imshow("Segmetancja obiektów ruchomych", movMask);
-        cv::imshow("InputImage", inputImage);
-        cv::waitKey(1);
+        cv::imshow("Segmentacja obiektów ruchomych", movMask);
+        cv::imshow("InputImage", imageToShow);
+
+        int k = cv::waitKey(1);
+        if( k == int('q'))
+            break;
+        else if(k == int('p'))
+            cv::waitKey(0);
+
     }
+
+    cv::destroyAllWindows();
 
     return 0;
 }
 
-//int findMinMax(std::vector<std::vector<cv::Point>> contour )
+
 static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m)
 {
     int npoints = points.checkVector(2);
@@ -193,7 +207,7 @@ static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m)
     xmin = xmax = pt.x;
     ymin = ymax = pt.y;
 
-    for( i = 1; i < npoints; i++ )
+    for( i = 0; i < npoints; i++ )
     {
         pt = pts[i];
 
@@ -227,4 +241,18 @@ static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m)
     ellipse( m, ptymin, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
     ellipse( m, ptymax, cv::Size( 3, 3), 0, 0, 360, cv::Scalar( 255, 0, 255 ), 2, 8, 0 );
     return cv::Rect(xmin, ymin, xmax - xmin + 1, ymax - ymin + 1);
+}
+
+float countPercantegOfMovingPixels(const cv::Mat& points, cv::Mat movMask)
+{
+    int npoints = points.checkVector(2);
+    const cv::Point* pts = points.ptr<cv::Point>();
+    cv::Point pt = pts[0];
+
+    for( int i = 0; i < npoints; i++ ) {
+        pt = pts[i];
+//        std::cout << "X: " << pt.x << " Y: " << pt.y << std::endl;
+
+    }
+
 }
