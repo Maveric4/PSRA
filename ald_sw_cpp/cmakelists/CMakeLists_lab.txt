@@ -3,7 +3,7 @@ project(ald_sw_cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ald_sw_cpp main.cpp)
+add_executable(ald_sw_cpp main.cpp main2.cpp)
 
 #== OpenCV (3.4.5.0) / (4.0.1) configuration ==#Where to find CMake modulesandOpenCV
 set(OpenCV_DIR "/opt/opencv/opencv/build/")  #check path
