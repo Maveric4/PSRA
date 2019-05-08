@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Fri Nov 25 15:11:45 2016
+# Process ID: 9413
+# Current directory: /home/tomasz/fpga_zynq/zybo/base_designs/draw_bbox/draw_bbox.runs/synth_1
+# Command line: vivado -log draw_bbox.vds -mode batch -messageDb vivado.pb -notrace -source draw_bbox.tcl
+# Log file: /home/tomasz/fpga_zynq/zybo/base_designs/draw_bbox/draw_bbox.runs/synth_1/draw_bbox.vds
+# Journal file: /home/tomasz/fpga_zynq/zybo/base_designs/draw_bbox/draw_bbox.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source draw_bbox.tcl -notrace

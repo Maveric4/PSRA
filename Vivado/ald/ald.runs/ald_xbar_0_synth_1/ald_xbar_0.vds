@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Mar 20 14:42:31 2019
+# Process ID: 15990
+# Current directory: /home/lsriw/PSRA/DG/lab4/ald/ald.runs/ald_xbar_0_synth_1
+# Command line: vivado -log ald_xbar_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ald_xbar_0.tcl
+# Log file: /home/lsriw/PSRA/DG/lab4/ald/ald.runs/ald_xbar_0_synth_1/ald_xbar_0.vds
+# Journal file: /home/lsriw/PSRA/DG/lab4/ald/ald.runs/ald_xbar_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source ald_xbar_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/lsriw/PSRA/DG/lab4/ip_repo/parameter_register_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/lsriw/PSRA/DG/lab3/maciej/lab2/ip_repo'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/lsriw/PSRA/DG/lab4/ip_repo/draw_bbox'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP ald_xbar_0, cache-ID = 17c94b74ae137178.
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 20 14:42:41 2019...

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ald_wrapper_hw_platform_0_Traces</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.linuxtools.tmf.project.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Traces/Run_Apr-03_14-40/PS_Trace_Apr-03_14-40/PS_Trace_Apr-03_14-40_</name>
+			<type>1</type>
+			<location>/home/lsriw/PSRA/DG/lab6/ald/ald.sdk/ald_wrapper_hw_platform_0_Traces/Traces/.bookmarks</location>
+		</link>
+	</linkedResources>
+</projectDescription>

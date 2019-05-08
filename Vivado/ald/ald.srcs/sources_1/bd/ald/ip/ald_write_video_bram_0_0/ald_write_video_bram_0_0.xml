@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>user.org</spirit:vendor>
+  <spirit:library>customized_ip</spirit:library>
+  <spirit:name>ald_write_video_bram_0_0</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.PHASE">0.000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN">ald_dvi2rgb_0_0_PixelClk</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_RESET"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:modelName>write_video_bram</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Apr 03 14:24:11 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:9fc22c5f</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsynthesiswrapper</spirit:name>
+        <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>ald_write_video_bram_0_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Apr 03 14:24:11 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:9fc22c5f</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:modelName>write_video_bram</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Apr 03 14:24:11 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:c926ad93</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
+        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>ald_write_video_bram_0_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Apr 03 14:24:11 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:c926ad93</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_externalfiles</spirit:name>
+        <spirit:displayName>External Files</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed Apr 03 14:24:47 UTC 2019</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:9fc22c5f</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>de_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hsync_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>vsync_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rgb_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">23</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>addra</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>dina</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">31</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>ena</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>wea</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>IMAGE_WIDTH</spirit:name>
+        <spirit:displayName>Image Width</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IMAGE_WIDTH">1280</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>IMAGE_HEIGHT</spirit:name>
+        <spirit:displayName>Image Height</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IMAGE_HEIGHT">720</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>COUNTER_WIDTH</spirit:name>
+        <spirit:displayName>Counter Width</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.COUNTER_WIDTH">11</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>../../ipshared/8948/write_video_bram.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>synth/ald_write_video_bram_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>../../ipshared/8948/write_video_bram.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>sim/ald_write_video_bram_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>ald_write_video_bram_0_0.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>ald_write_video_bram_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>ald_write_video_bram_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>ald_write_video_bram_0_0_sim_netlist.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>ald_write_video_bram_0_0_sim_netlist.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>write_video_bram_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>IMAGE_WIDTH</spirit:name>
+      <spirit:displayName>Image Width</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IMAGE_WIDTH">1280</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>IMAGE_HEIGHT</spirit:name>
+      <spirit:displayName>Image Height</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.IMAGE_HEIGHT">720</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>COUNTER_WIDTH</spirit:name>
+      <spirit:displayName>Counter Width</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.COUNTER_WIDTH">11</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">ald_write_video_bram_0_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:displayName>write_video_bram_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ee580b4_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26999bbd_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a63fdf_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50fdf6f_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f4f23fc_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48ddb1e6_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d0fda0d_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ac4f918_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19f73562_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e7c1804_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c4b03b0_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75dd0da4_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46e13fa7_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22bd9a90_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c12f8a5_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d9b0687_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4856067c_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab5/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@441bcd0a_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33df5b4c_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f4f56c7_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2a15b19f_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50eec721_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@257f2488_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17345f53_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5c5fd71d_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@bbbc06_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c96a051_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@255de689_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32e54f3b_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e445bf0_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@139ac5d9_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@20b612ab_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3844f210_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bfc253f_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f9b4fe2_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48e76d4d_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50c3c070_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43bf2ad5_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71e9090_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d7eddf_ARCHIVE_LOCATION">/home/lsriw/PSRA/DG/lab6/write_video_bram/write_video_bram.srcs/sources_1/new</xilinx:tag>
+      </xilinx:tags>
+      <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
+      </xilinx:configElementInfos>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a88d4390"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ea011d99"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="caa1594c"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="845d4207"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2211f1f6"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>

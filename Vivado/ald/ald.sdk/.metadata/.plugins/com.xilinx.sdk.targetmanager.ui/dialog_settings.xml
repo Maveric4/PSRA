@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="ald_wrapper_hw_platform_0-bmmFile"/>
+	<item value="" key="ald_wrapper_hw_platform_2-bmmFile"/>
+	<item value="false" key="ald_wrapper_hw_platform_0-partial_bit"/>
+	<item value="ald_wrapper.bit" key="ald_wrapper_hw_platform_2-bitFile"/>
+	<item value="" key="ald_wrapper_hw_platform_1-bmmFile"/>
+	<item value="Auto Detect" key="ald_wrapper_hw_platform_2-device"/>
+	<item value="Auto Detect" key="ald_wrapper_hw_platform_0-device"/>
+	<item value="Auto Detect" key="ald_wrapper_hw_platform_1-device"/>
+	<item value="false" key="ald_wrapper_hw_platform_2-partial_bit"/>
+	<item value="ald_wrapper_hw_platform_0" key="programfpga.hwplatform"/>
+	<item value="false" key="ald_wrapper_hw_platform_1-partial_bit"/>
+	<item value="ald_wrapper.bit" key="ald_wrapper_hw_platform_1-bitFile"/>
+	<item value="ald_wrapper.bit" key="ald_wrapper_hw_platform_0-bitFile"/>
+	<item value="Local" key="ald_wrapper_hw_platform_0-target"/>
+	<item value="Local" key="ald_wrapper_hw_platform_2-target"/>
+	<item value="Local" key="ald_wrapper_hw_platform_1-target"/>
+</section>
