@@ -19,6 +19,8 @@ opencv2/imgproc/imgproc.hpp
 /home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/opencv2/imgproc/imgproc.hpp
 math.h
 -
+list
+-
 
 /opt/opencv/opencv/build/cv_cpu_config.h
 
