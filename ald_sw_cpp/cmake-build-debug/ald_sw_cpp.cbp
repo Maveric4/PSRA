@@ -5,53 +5,36 @@
 		<Option title="ald_sw_cpp"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\opt\;CMake Files\..\..\..\opt\opencv_4_0_1\;CMake Files\..\..\..\opt\opencv_4_0_1\build\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug"/>
+				<Option working_dir="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug"/>
+				<Option working_dir="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ald_sw_cpp">
-				<Option output="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/ald_sw_cpp" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug"/>
+				<Option output="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/ald_sw_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/build"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/core/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/flann/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/imgproc/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/ml/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/photo/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/dnn/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/gapi/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/imgcodecs/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/videoio/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/highgui/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/ts/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/features2d/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/calib3d/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/objdetect/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/stitching/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/video/include"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -62,37 +45,20 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 ald_sw_cpp"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 ald_sw_cpp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="ald_sw_cpp/fast">
-				<Option output="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/ald_sw_cpp" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug"/>
+				<Option output="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/ald_sw_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/build"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/core/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/flann/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/imgproc/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/ml/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/photo/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/dnn/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/gapi/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/imgcodecs/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/videoio/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/highgui/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/ts/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/features2d/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/calib3d/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/objdetect/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/stitching/include"/>
-					<Add directory="/home/maverick/opt/opencv_4_0_1/modules/video/include"/>
+					<Add directory="/usr/local/include/opencv4"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -103,40 +69,40 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 ald_sw_cpp/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 ald_sw_cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug"/>
+				<Option working_dir="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/main.cpp">
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/main.cpp">
 			<Option target="ald_sw_cpp"/>
 		</Unit>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/main2.cpp">
-			<Option target="ald_sw_cpp"/>
-		</Unit>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/CMakeLists.txt">
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/../../../opt/opencv_4_0_1/build/OpenCVConfig-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\opencv_4_0_1\build\"/>
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/../../../opt/opencv_4_0_1/build/OpenCVConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\opencv_4_0_1\build\"/>
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/../../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/maverick/Documents/PSRA/ald_sw_cpp/../../../opt/opencv_4_0_1/build/OpenCVModules.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\opencv_4_0_1\build\"/>
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/../../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

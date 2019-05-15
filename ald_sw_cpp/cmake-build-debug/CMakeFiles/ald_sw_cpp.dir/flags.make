@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/maverick/opt/opencv_4_0_1/build -isystem /home/maverick/opt/opencv_4_0_1/include -isystem /home/maverick/opt/opencv_4_0_1/modules/core/include -isystem /home/maverick/opt/opencv_4_0_1/modules/flann/include -isystem /home/maverick/opt/opencv_4_0_1/modules/imgproc/include -isystem /home/maverick/opt/opencv_4_0_1/modules/ml/include -isystem /home/maverick/opt/opencv_4_0_1/modules/photo/include -isystem /home/maverick/opt/opencv_4_0_1/modules/dnn/include -isystem /home/maverick/opt/opencv_4_0_1/modules/gapi/include -isystem /home/maverick/opt/opencv_4_0_1/modules/imgcodecs/include -isystem /home/maverick/opt/opencv_4_0_1/modules/videoio/include -isystem /home/maverick/opt/opencv_4_0_1/modules/highgui/include -isystem /home/maverick/opt/opencv_4_0_1/modules/ts/include -isystem /home/maverick/opt/opencv_4_0_1/modules/features2d/include -isystem /home/maverick/opt/opencv_4_0_1/modules/calib3d/include -isystem /home/maverick/opt/opencv_4_0_1/modules/objdetect/include -isystem /home/maverick/opt/opencv_4_0_1/modules/stitching/include -isystem /home/maverick/opt/opencv_4_0_1/modules/video/include 
+CXX_INCLUDES = -isystem /usr/local/include/opencv4 
 
