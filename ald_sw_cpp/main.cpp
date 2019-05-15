@@ -17,6 +17,8 @@ typedef cv::Vec<uchar,3> vec_uchar_3;
 #define areaThresh 500
 #define median_ksize 5
 #define ksize 3
+#define areaRatioThresh 0.9
+#define commonAreaRatioThresh 0.9
 
 struct recog_object {
     cv::Point2f mc;
@@ -167,20 +169,14 @@ int main() {
         }
 
         cv::Rect minRect;
-        float percentage = 0;
         for( size_t i = 0; i < contours.size(); i++ )
         {
-//            drawContours( inputImage, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point() );
-//            int w = 50;
-//            int h = 100;
-//            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
             cv::Scalar color(255, 0, 0);
-
             recog_object new_obj;
 
             if(areas[i] > areaThresh) {
                 minRect = pointSetBoundingRect(cv::Mat(contours[i]), imageToShow);
-                cv::rectangle(imageToShow, minRect, color);
+                //cv::rectangle(imageToShow, minRect, color);
                 new_obj.mc = mc[i];
                 new_obj.rect = minRect;
                 new_obj.area = minRect.width * minRect.height;
@@ -188,8 +184,9 @@ int main() {
                 if(iImage == iStart) {
                     prev_list.push_back(new_obj);
                 }
-                act_list.push_back(new_obj);
-//                percentage = countPercantegOfMovingPixels(cv::Mat(contours[i]), movMask);
+                else {
+                    act_list.push_back(new_obj);
+                }
             }
             cv::putText(imageToShow, "obj", cv::Point(int(mc[i].x), int(mc[i].y)), cv::FONT_HERSHEY_SIMPLEX, 0.2, color);
         }
@@ -202,26 +199,54 @@ int main() {
         std::list<recog_object>::iterator act_obj;
         std::list<recog_object>::iterator prev_obj;
 
-        float commonRectArea = 0;
-        float commonAreaRatio = 0;
-        float areaRatio = 0;
+
         for(act_obj=act_list.begin(); act_obj != act_list.end(); act_obj++)
         {
+            float commonRectArea = 0;
+            float commonAreaRatio = 0;
+            float areaRatio = 0;
+            float max_commonRectArea = 0;
+            std::list<recog_object>::iterator f_obj;
+            bool objectFound = false;
             for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
             {
                 commonRectArea = calculateCommonRectArea(*act_obj, *prev_obj);
                 commonAreaRatio = calculateCommonAreaRatio(commonRectArea, *prev_obj);
                 areaRatio = calculateAreaRatio(*act_obj, *prev_obj);
-
-                std::cout << commonRectArea  << " " << commonAreaRatio << " " <<  areaRatio << std::endl;
-
+//                std::cout << commonRectArea  << " " << commonAreaRatio << " " <<  areaRatio << std::endl;
+                if(commonRectArea > max_commonRectArea)
+                    if(areaRatio > areaRatioThresh and commonAreaRatio > commonAreaRatioThresh) {
+                        max_commonRectArea = areaRatio;
+                        f_obj = prev_obj;
+                        objectFound = true;
+                    }
+            }
+            if(objectFound){
+                (*f_obj).area = (*act_obj).area;
+                (*f_obj).rect = (*act_obj).rect;
+                (*f_obj).frameCounter++;
+                (*f_obj).isVisible = true;
+            }
+            if(not objectFound) {
+                prev_list.push_back(*act_obj);
             }
         }
 
+        for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
+        {
+            if((*prev_obj).frameCounter > 30)
+            {
+                std::cout << (*prev_obj).frameCounter << std::endl;
+                cv::Scalar color(0, 0, 255);
+                cv::rectangle(imageToShow, (*prev_obj).rect, color);
+            }
+            if(not (*prev_obj).isVisible)
+                prev_list.erase(prev_obj++);
+        }
 
         // Clone actual objects to previous ones
         inputImage_prev = inputImage.clone();
-        prev_list.assign(act_list.begin(), act_list.end());
+//        prev_list.assign(act_list.begin(), act_list.end());
         act_list.clear();
 
         // Display images
@@ -298,19 +323,23 @@ static cv::Rect pointSetBoundingRect( const cv::Mat& points , cv::Mat m)
     return cv::Rect(xmin, ymin, xmax - xmin + 1, ymax - ymin + 1);
 }
 
-float countPercantegOfMovingPixels(const cv::Mat& points, cv::Mat movMask)
-{
-    int npoints = points.checkVector(2);
-    const cv::Point* pts = points.ptr<cv::Point>();
-    cv::Point pt = pts[0];
-
-    for( int i = 0; i < npoints; i++ ) {
-        pt = pts[i];
-//        std::cout << "X: " << pt.x << " Y: " << pt.y << std::endl;
-
-    }
-
-}
+//float countPercantegOfMovingPixels(const cv::Mat& points, cv::Mat movMask)
+//{
+//    int npoints = points.checkVector(2);
+//    const cv::Point* pts = points.ptr<cv::Point>();
+//    cv::Point pt = pts[0];
+//
+//    for( int i = 0; i < npoints; i++ ) {
+//        pt = pts[i];
+////        std::cout << "X: " << pt.x << " Y: " << pt.y << std::endl;
+//
+//    }
+//
+//}
+//            drawContours( inputImage, contours, (int)i, color, 2, 8, hierarchy, 0, cv::Point() );
+//            int w = 50;
+//            int h = 100;
+//            cv::Rect rect(mc[i].x - w/2, mc[i].y - h/2, w, h);
 
 float calculateCommonRectArea(recog_object act_obj, recog_object prev_obj)
 {

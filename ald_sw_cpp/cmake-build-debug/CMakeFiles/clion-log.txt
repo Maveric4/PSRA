@@ -1,4 +1,8 @@
-/opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/lsriw/PSRA/DG/PSRA/ald_sw_cpp
+/home/maverick/clion-2018.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/maverick/Documents/PSRA/ald_sw_cpp
+-- OpenCV library status:
+--     version: 4.1.0
+--     libraries: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_gapi;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_videoio
+--     include path: /home/maverick/opt/opencv_4_0_1/build;/home/maverick/opt/opencv_4_0_1/include;/home/maverick/opt/opencv_4_0_1/modules/core/include;/home/maverick/opt/opencv_4_0_1/modules/flann/include;/home/maverick/opt/opencv_4_0_1/modules/imgproc/include;/home/maverick/opt/opencv_4_0_1/modules/ml/include;/home/maverick/opt/opencv_4_0_1/modules/photo/include;/home/maverick/opt/opencv_4_0_1/modules/dnn/include;/home/maverick/opt/opencv_4_0_1/modules/gapi/include;/home/maverick/opt/opencv_4_0_1/modules/imgcodecs/include;/home/maverick/opt/opencv_4_0_1/modules/videoio/include;/home/maverick/opt/opencv_4_0_1/modules/highgui/include;/home/maverick/opt/opencv_4_0_1/modules/ts/include;/home/maverick/opt/opencv_4_0_1/modules/features2d/include;/home/maverick/opt/opencv_4_0_1/modules/calib3d/include;/home/maverick/opt/opencv_4_0_1/modules/objdetect/include;/home/maverick/opt/opencv_4_0_1/modules/stitching/include;/home/maverick/opt/opencv_4_0_1/modules/video/include
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug
+-- Build files have been written to: /home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug

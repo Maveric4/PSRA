@@ -14,3 +14,60 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 set(OpenCV_LIBS opencv_core opencv_imgproc opencv_highgui opencv_imgcodecs)
 #Linking
 target_link_libraries(ald_sw_cpp ${OpenCV_LIBS})
+
+
+//
+// Created by maverick on 15.05.19.
+//
+
+#include <iostream>
+#include <math.h>
+#include <list>
+#include"opencv2/opencv.hpp"
+#include"opencv2/core/core.hpp"
+#include"opencv2/highgui/highgui.hpp"
+#include"opencv2/imgproc/imgproc.hpp"
+
+struct recog_object {
+    cv::Point2f mc;
+    double area = 0.0;
+    cv::Rect rect;
+    bool isVisible = false;
+    int frameCounter = 0;
+};
+
+int main2()
+{
+    std::list<recog_object> prev_list = std::list<recog_object>();
+    std::list<recog_object>::iterator prev_obj;
+    std::list<recog_object>::iterator f_obj;
+    for (int i = 0; i < 10; i++)
+    {
+        recog_object obj;
+        obj.area = i;
+        prev_list.push_back(obj);
+    }
+
+    for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
+    {
+        if((*prev_obj).area == 6)
+        {
+            (*prev_obj).isVisible = true;
+            f_obj = prev_obj;
+        }
+
+    }
+
+    for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
+    {
+        if((*prev_obj).isVisible == true)
+            prev_list.erase(prev_obj++);
+    }
+
+
+    for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
+    {
+        std::cout << (*prev_obj).area << std::endl;
+//        std::cout << (*prev_obj).isVisible << std::endl;
+    }
+}

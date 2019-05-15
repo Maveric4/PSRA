@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ald_sw_cpp.dir/main.cpp.o"
+  "CMakeFiles/ald_sw_cpp.dir/main2.cpp.o"
   "ald_sw_cpp.pdb"
   "ald_sw_cpp"
 )
