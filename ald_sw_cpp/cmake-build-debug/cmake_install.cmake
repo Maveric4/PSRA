@@ -1,4 +1,4 @@
-# Install script for directory: /home/lsriw/PSRA/DG/PSRA/ald_sw_cpp
+# Install script for directory: /home/maverick/Documents/PSRA/ald_sw_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/lsriw/PSRA/DG/PSRA/ald_sw_cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/maverick/Documents/PSRA/ald_sw_cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

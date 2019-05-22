@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Apr  4 13:59:00 2019
+# Process ID: 31027
+# Current directory: /home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ald/ald.runs/ald_shift_reg_1_0_synth_1
+# Command line: vivado -log ald_shift_reg_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ald_shift_reg_1_0.tcl
+# Log file: /home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ald/ald.runs/ald_shift_reg_1_0_synth_1/ald_shift_reg_1_0.vds
+# Journal file: /home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ald/ald.runs/ald_shift_reg_1_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source ald_shift_reg_1_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository '/home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ip_repo/parameter_register_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP ald_shift_reg_1_0, cache-ID = b9753b729ea312c9.
+INFO: [Common 17-206] Exiting Vivado at Thu Apr  4 13:59:10 2019...

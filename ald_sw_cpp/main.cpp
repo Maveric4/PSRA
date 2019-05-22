@@ -62,7 +62,7 @@ int main() {
             inputImage_prev = inputImage.clone();
         }
 
-        //Segmentacja obiektów pierwszoplanowych
+        // Foreground ojects segmentation
         cv::Mat fgMask = cv::Mat::zeros(inputImage.rows, inputImage.cols, CV_8U);
         for(int jj=0; jj < inputImage.rows; jj++) {
             for (int ii = 0; ii < inputImage.cols; ii++) {
@@ -77,7 +77,7 @@ int main() {
             }
         }
 
-        //Filtracja medianowa maski obiektów pierwszoplanowych i operacje morfologiczne
+        // Median filtration of foreground mask, morphological operations
 //        cv::imshow("Przed", fgMask);
         cv::medianBlur(fgMask, fgMask, median_ksize);
         cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT,  cv::Size(ksize, ksize));
@@ -85,7 +85,7 @@ int main() {
 //        cv::morphologyEx(fgMask, fgMask, cv::MORPH_OPEN, kernel);
 //        cv::imshow("Po", fgMask);
 
-        //Segmentacja obiektów ruchomych
+        // Moving objects segmentation
         movMask = cv::Mat::zeros(inputImage.rows, inputImage.cols, CV_8U);
         for(int jj=0; jj < movMask.rows; jj++) {
             for (int ii = 0; ii < movMask.cols; ii++) {
@@ -101,11 +101,11 @@ int main() {
             }
         }
 
-        //Filtracja medianowa maski obiektów ruchomych i operacje morfologiczne
+        // Median filtration of moving objects mask, morphological operations
         cv::medianBlur(movMask, movMask, median_ksize);
         cv::morphologyEx(movMask, movMask, cv::MORPH_CLOSE, kernel, cv::Point(-1,-1), 3);
 
-        //Aktualizacja
+        // Background model actualization
         for(int jj=0; jj < inputImage.rows; jj++) {
             for(int ii=0; ii < inputImage.cols; ii++) {
                 vec_uchar_3 in_pixel = inputImage.at<vec_uchar_3>(jj,ii);
@@ -120,32 +120,33 @@ int main() {
                 }
             }
         }
+        /*
+        // Indexation ver 1
+        labels_num = cv::connectedComponentsWithStats(fgMask, labels, stats, centroids, 4, CV_16U); //, cv::CCL_DEFAULT );
 
-//       // Indeksacja I
-//        labels_num = cv::connectedComponentsWithStats(fgMask, labels, stats, centroids, 4, CV_16U); //, cv::CCL_DEFAULT );
-//
-//        for(int i=1; i<stats.rows; i++) {
-//            int x = stats.at<int>(cv::Point(0, i));
-//            int y = stats.at<int>(cv::Point(1, i));
-//            int w = stats.at<int>(cv::Point(2, i));
-//            int h = stats.at<int>(cv::Point(3, i));
-//            int area = stats.at<int>(cv::Point(4, i));
-//            int max = stats.at<int>(cv::Point(5, i));
-//            //std::cout << "x=" << x << " y=" << y << " w=" << w << " h=" << h << std::endl;
-//            if(area > 300)
-//            {
-//                cv::Scalar color(255, 0, 0);
-//                cv::Rect rect(x, y, w, h);
-//                cv::rectangle(inputImage, rect, color);
-//            }
-//        }
+        for(int i=1; i<stats.rows; i++) {
+            int x = stats.at<int>(cv::Point(0, i));
+            int y = stats.at<int>(cv::Point(1, i));
+            int w = stats.at<int>(cv::Point(2, i));
+            int h = stats.at<int>(cv::Point(3, i));
+            int area = stats.at<int>(cv::Point(4, i));
+            int max = stats.at<int>(cv::Point(5, i));
+            //std::cout << "x=" << x << " y=" << y << " w=" << w << " h=" << h << std::endl;
+            if(area > 300)
+            {
+                cv::Scalar color(255, 0, 0);
+                cv::Rect rect(x, y, w, h);
+                cv::rectangle(inputImage, rect, color);
+            }
+        }
+        */
 
-        // Indeksacja II
+        // Indexation - ver 2
         std::vector<std::vector<cv::Point>> contours;
         std::vector<cv::Vec4i> hierarchy;
         cv::findContours(fgMask, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE);
 
-        /// Get the moments, mass centers and areas
+        // Get the moments, mass centers and areas
         std::vector<cv::Moments> mu(contours.size());
         std::vector<cv::Point2f> mc( contours.size() );
         std::vector<cv::Point> min_max( contours.size() );
@@ -162,6 +163,7 @@ int main() {
             cv::Scalar color(255, 0, 0);
             recog_object new_obj;
 
+            // Detect only objects bigger than threshold size
             if(areas[i] > areaThresh) {
                 minRect = pointSetBoundingRect(cv::Mat(contours[i]), imageToShow);
                 cv::rectangle(imageToShow, minRect, color);
@@ -213,6 +215,7 @@ int main() {
             }
         }
 
+        // Check for dangerous objects
         for(prev_obj=prev_list.begin(); prev_obj != prev_list.end(); prev_obj++)
         {
             if((*prev_obj).frameCounter > frameCounterThresh)
@@ -228,20 +231,21 @@ int main() {
 
         // Clone actual objects to previous ones
         inputImage_prev = inputImage.clone();
+        // Clear list of actual frame objects
         act_list.clear();
 
         // Display images
-        cv::imshow("bgModel", bgModel);
+        cv::imshow("Model tła", bgModel);
         cv::imshow("Segmentacja obiektów pierwszoplanowych", fgMask);
         cv::imshow("Segmentacja obiektów ruchomych", movMask);
-        cv::imshow("InputImage", imageToShow);
+        cv::imshow("Ekran detekcji", imageToShow);
 
+        //Close or pause video stream - press key
         int k = cv::waitKey(1);
         if( k == int('q'))
             break;
         else if(k == int('p'))
             cv::waitKey(0);
-
     }
     cv::destroyAllWindows();
     return 0;

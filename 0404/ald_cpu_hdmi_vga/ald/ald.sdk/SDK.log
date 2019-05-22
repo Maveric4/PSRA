@@ -1,0 +1,6 @@
+13:19:18 INFO  : Registering command handlers for SDK TCF services
+13:19:19 INFO  : Launching XSCT server: xsct -n -interactive /home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ald/ald.sdk/temp_xsdb_launch_script.tcl
+13:19:21 INFO  : XSCT server has started successfully.
+13:19:21 INFO  : Successfully done setting XSCT server connection channel  
+13:19:21 INFO  : Successfully done setting SDK workspace  
+13:19:21 INFO  : Processing command line option -hwspec /home/lsriw/HSVS/0404/ald_cpu_hdmi_vga/ald/ald.sdk/ald_wrapper.hdf.
